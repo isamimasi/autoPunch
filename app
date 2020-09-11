@@ -1,5 +1,6 @@
 from selenium import webdriver
 import datetime
+import time
 companyName="*****" #企業ＩＤ
 loginName="*****" #ユーザーＩＤ
 passWord="******" #パスワード
@@ -15,11 +16,13 @@ def timeManagement():
             #↓パンチインした後に止めるなら、有効にしてください。
             #checker=False
             login("punchin")
+            time.sleep(120)
         if punchOut=="{}:{}".format(dt_now.hour,dt_now.minute) and checker:
             print ("OK")
             #↓パンチアウトした後に止めるなら、有効にしてください。
             #checker=False
             login("punchout")
+            time.sleep(120)
     return
 def login(punch):
     #chromedirverのPATH通していれば、わざわざパス指定不要
